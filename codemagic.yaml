@@ -1,33 +1,38 @@
-# Codemagic Configuration for SkillLink
 workflows:
-  ios-unsigned-build:
-    name: iOS Unsigned Build
-    max_build_duration: 60
+  ios-ipa-build:
+    name: SkillLink IPA Build
     instance_type: mac_mini_m2
+    max_build_duration: 60
     working_directory: skillLink-replit-duplicate-main
     scripts:
       - name: Install dependencies
-        script: | 
+        script: |
           npm install
       - name: Build web assets
         script: |
           npm run build
-      - name: Capacitor Sync
+      - name: Initialize & Sync iOS
         script: |
-          # This command creates the 'ios' folder if it doesn't exist
           npx cap add ios || true
           npx cap sync ios
-      - name: Build iOS Project
+      - name: Build Unsigned App
         script: |
           xcodebuild build \
             -workspace ios/App/App.xcworkspace \
             -scheme App \
-            -configuration Debug \
+            -configuration Release \
             -sdk iphoneos \
+            -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_IDENTITY=""
+            CODE_SIGN_IDENTITY="" \
+            PROVISIONING_PROFILE=""
+      - name: Package IPA
+        script: |
+          # This creates the .ipa file you can actually download
+          mkdir -p build/ipa/Payload
+          cp -r build/Build/Products/Release-iphoneos/App.app build/ipa/Payload/
+          cd build/ipa
+          zip -r SkillLink_Unsigned.ipa Payload
     artifacts:
-      - $CM_BUILD_DIR/**/*.app
-      - $CM_BUILD_DIR/**/*.ipa
-      - $CM_BUILD_DIR/**/build/Release-iphoneos/*.app
+      - skillLink-replit-duplicate-main/build/ipa/*.ipa
