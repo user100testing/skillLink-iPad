@@ -33,5 +33,7 @@ workflows:
           cp -r build/Build/Products/Release-iphoneos/App.app build/ipa/Payload/
           cd build/ipa
           zip -r SkillLink_Unsigned.ipa Payload
-    artifacts:
-      - skillLink-replit-duplicate-main/build/ipa/*.ipa
+artifacts:
+      - "**/build/ipa/*.ipa"
+      - "**/build/Build/Products/Release-iphoneos/*.app"
+      - "skillLink-replit-duplicate-main/build/ipa/*.ipa"
