@@ -28,4 +28,6 @@ workflows:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_IDENTITY=""
     artifacts:
-      - $CM_BUILD_DIR/skillLink-replit-duplicate-main/ios/App/build/Release-iphoneos/*.app
+      - $CM_BUILD_DIR/**/*.app
+      - $CM_BUILD_DIR/**/*.ipa
+      - $CM_BUILD_DIR/**/build/Release-iphoneos/*.app
