@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+﻿import { useState, useRef } from 'react';
 import { ArrowLeft, Camera, Upload, User, Check } from 'lucide-react';
 import { Button } from './ui/button';
 
@@ -53,11 +53,11 @@ export function ProfilePhotoScreen({ onBack }: ProfilePhotoScreenProps) {
     <div className="h-full bg-gradient-to-b from-purple-50 to-white overflow-y-auto pb-24">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-500 px-6 pt-12 pb-8 rounded-b-[3rem] shadow-xl">
-        <button onClick={onBack} className="text-white/80 flex items-center gap-1 mb-4 text-sm">
+        <button onClick={onBack} className="text-white/80 flex items-center gap-1 mb-4 text-lg">
           <ArrowLeft size={18} /> Back
         </button>
         <h1 className="text-white text-2xl font-black">Your Profile Photo</h1>
-        <p className="text-purple-100 text-sm mt-1">Upload a photo and choose your border style</p>
+        <p className="text-purple-100 text-lg mt-1">Upload a photo and choose your border style</p>
       </div>
 
       {/* Avatar Preview */}
@@ -95,25 +95,25 @@ export function ProfilePhotoScreen({ onBack }: ProfilePhotoScreenProps) {
         {/* Upload button */}
         <button
           onClick={() => fileInputRef.current?.click()}
-          className="flex items-center gap-2 bg-white border-2 border-purple-300 text-purple-600 font-bold px-6 py-3 rounded-2xl shadow-sm mb-2 active:scale-95 transition-transform"
+          className="flex items-center gap-4 bg-white border-2 border-purple-300 text-purple-600 font-bold px-6 py-3 rounded-2xl shadow-sm mb-2 active:scale-95 transition-transform"
         >
           <Upload size={18} />
           {photo ? 'Change Photo' : 'Upload Photo'}
         </button>
-        <p className="text-gray-400 text-xs">Tap the camera icon or the button above</p>
+        <p className="text-gray-400 text-lg">Tap the camera icon or the button above</p>
       </div>
 
       {/* Border Picker */}
       <div className="px-6 mt-8">
         <h2 className="text-gray-800 font-black text-lg mb-1">Profile Border</h2>
-        <p className="text-gray-400 text-sm mb-4">Choose a border style for your avatar</p>
+        <p className="text-gray-400 text-lg mb-4">Choose a border style for your avatar</p>
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-3 gap-5">
           {BORDER_DESIGNS.map((border) => (
             <button
               key={border.id}
               onClick={() => setSelectedBorder(border.id)}
-              className={`flex flex-col items-center gap-2 p-3 rounded-2xl border-2 transition-all ${
+              className={`flex flex-col items-center gap-4 p-5 rounded-2xl border-2 transition-all ${
                 selectedBorder === border.id
                   ? 'border-purple-500 bg-purple-50 shadow-md scale-[1.02]'
                   : 'border-gray-100 bg-white'
@@ -128,11 +128,11 @@ export function ProfilePhotoScreen({ onBack }: ProfilePhotoScreenProps) {
                   {photo ? (
                     <img src={photo} alt="" className="w-full h-full object-cover" />
                   ) : (
-                    '😊'
+                    'ðŸ˜Š'
                   )}
                 </div>
               </div>
-              <span className="text-xs font-semibold text-gray-600">{border.label}</span>
+              <span className="text-lg font-semibold text-gray-600">{border.label}</span>
               {selectedBorder === border.id && (
                 <div className="absolute-ish">
                   <Check size={14} className="text-purple-500" />
@@ -150,7 +150,7 @@ export function ProfilePhotoScreen({ onBack }: ProfilePhotoScreenProps) {
           className="w-full py-5 rounded-2xl text-lg font-black bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-xl"
         >
           {saved ? (
-            <span className="flex items-center gap-2"><Check size={20} /> Saved!</span>
+            <span className="flex items-center gap-4"><Check size={20} /> Saved!</span>
           ) : (
             'Save Profile Photo'
           )}
@@ -159,3 +159,4 @@ export function ProfilePhotoScreen({ onBack }: ProfilePhotoScreenProps) {
     </div>
   );
 }
+

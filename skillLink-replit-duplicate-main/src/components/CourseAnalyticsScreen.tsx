@@ -1,4 +1,4 @@
-import { ArrowLeft, Users, Eye, DollarSign, TrendingUp, Clock } from 'lucide-react';
+﻿import { ArrowLeft, Users, Eye, DollarSign, TrendingUp, Clock } from 'lucide-react';
 import { CreatorCourse } from './CreatorDashboardScreen';
 import { useTranslation, Language } from './translations';
 
@@ -27,7 +27,7 @@ export function CourseAnalyticsScreen({
     <div className="h-full bg-gradient-to-b from-purple-50 to-white dark:from-purple-950 dark:to-background overflow-y-auto pb-20">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-6 rounded-b-3xl shadow-lg">
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex items-center gap-6 mb-4">
           <button
             onClick={onBack}
             className="p-2 hover:bg-white/20 rounded-xl transition-colors"
@@ -36,7 +36,7 @@ export function CourseAnalyticsScreen({
           </button>
           <h1 className="text-white">{t.courseAnalytics}</h1>
         </div>
-        <div className="flex items-center gap-3 mt-4">
+        <div className="flex items-center gap-5 mt-4">
           <div className="text-3xl">{course.icon}</div>
           <div>
             <h2 className="text-white">{course.title}</h2>
@@ -48,10 +48,10 @@ export function CourseAnalyticsScreen({
       <div className="p-6 space-y-6">
         {/* Key Metrics */}
         <div className="bg-white dark:bg-card rounded-2xl p-5 shadow-md">
-          <h3 className="text-card-foreground mb-4">📊 Key Metrics</h3>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-blue-50 dark:bg-blue-950 rounded-xl p-4">
-              <div className="flex items-center gap-2 mb-2">
+          <h3 className="text-card-foreground mb-4">ðŸ“Š Key Metrics</h3>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="bg-blue-50 dark:bg-blue-950 rounded-xl p-6">
+              <div className="flex items-center gap-4 mb-2">
                 <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 <p className="text-muted-foreground">Students</p>
               </div>
@@ -62,8 +62,8 @@ export function CourseAnalyticsScreen({
               </p>
             </div>
 
-            <div className="bg-green-50 dark:bg-green-950 rounded-xl p-4">
-              <div className="flex items-center gap-2 mb-2">
+            <div className="bg-green-50 dark:bg-green-950 rounded-xl p-6">
+              <div className="flex items-center gap-4 mb-2">
                 <DollarSign className="w-5 h-5 text-green-600 dark:text-green-400" />
                 <p className="text-muted-foreground">Earnings</p>
               </div>
@@ -73,16 +73,16 @@ export function CourseAnalyticsScreen({
               </p>
             </div>
 
-            <div className="bg-purple-50 dark:bg-purple-950 rounded-xl p-4">
-              <div className="flex items-center gap-2 mb-2">
+            <div className="bg-purple-50 dark:bg-purple-950 rounded-xl p-6">
+              <div className="flex items-center gap-4 mb-2">
                 <Eye className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                 <p className="text-muted-foreground">Total Views</p>
               </div>
               <p className="text-card-foreground">{course.totalViews}</p>
             </div>
 
-            <div className="bg-orange-50 dark:bg-orange-950 rounded-xl p-4">
-              <div className="flex items-center gap-2 mb-2">
+            <div className="bg-orange-50 dark:bg-orange-950 rounded-xl p-6">
+              <div className="flex items-center gap-4 mb-2">
                 <Clock className="w-5 h-5 text-orange-600 dark:text-orange-400" />
                 <p className="text-muted-foreground">Avg. Time</p>
               </div>
@@ -93,7 +93,7 @@ export function CourseAnalyticsScreen({
 
         {/* Engagement Stats */}
         <div className="bg-white dark:bg-card rounded-2xl p-5 shadow-md">
-          <h3 className="text-card-foreground mb-4">🎯 Engagement</h3>
+          <h3 className="text-card-foreground mb-4">ðŸŽ¯ Engagement</h3>
           
           <div className="space-y-4">
             <div>
@@ -128,7 +128,7 @@ export function CourseAnalyticsScreen({
 
         {/* Course Details */}
         <div className="bg-white dark:bg-card rounded-2xl p-5 shadow-md">
-          <h3 className="text-card-foreground mb-4">📚 Course Details</h3>
+          <h3 className="text-card-foreground mb-4">ðŸ“š Course Details</h3>
           <div className="space-y-3">
             <div className="flex justify-between">
               <span className="text-muted-foreground">Total Lessons</span>
@@ -153,31 +153,31 @@ export function CourseAnalyticsScreen({
 
         {/* Recent Student Activity */}
         <div className="bg-white dark:bg-card rounded-2xl p-5 shadow-md">
-          <h3 className="text-card-foreground mb-4">🎓 Recent Student Activity</h3>
+          <h3 className="text-card-foreground mb-4">ðŸŽ“ Recent Student Activity</h3>
           <div className="space-y-3">
             {course.studentsEnrolled > 0 ? (
               <>
-                <div className="flex items-center gap-3 p-3 bg-blue-50 dark:bg-blue-950 rounded-xl">
-                  <div className="text-2xl">👧</div>
+                <div className="flex items-center gap-5 p-5 bg-blue-50 dark:bg-blue-950 rounded-xl">
+                  <div className="text-2xl">ðŸ‘§</div>
                   <div className="flex-1">
                     <p className="text-card-foreground">Sarah L.</p>
                     <p className="text-muted-foreground">Completed lesson 3</p>
                   </div>
                   <span className="text-muted-foreground">2h ago</span>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-green-50 dark:bg-green-950 rounded-xl">
-                  <div className="text-2xl">👦</div>
+                <div className="flex items-center gap-5 p-5 bg-green-50 dark:bg-green-950 rounded-xl">
+                  <div className="text-2xl">ðŸ‘¦</div>
                   <div className="flex-1">
                     <p className="text-card-foreground">Alex M.</p>
                     <p className="text-muted-foreground">Enrolled in course</p>
                   </div>
                   <span className="text-muted-foreground">5h ago</span>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-purple-50 dark:bg-purple-950 rounded-xl">
-                  <div className="text-2xl">👧</div>
+                <div className="flex items-center gap-5 p-5 bg-purple-50 dark:bg-purple-950 rounded-xl">
+                  <div className="text-2xl">ðŸ‘§</div>
                   <div className="flex-1">
                     <p className="text-card-foreground">Emma K.</p>
-                    <p className="text-muted-foreground">Completed course! 🎉</p>
+                    <p className="text-muted-foreground">Completed course! ðŸŽ‰</p>
                   </div>
                   <span className="text-muted-foreground">1d ago</span>
                 </div>
@@ -194,7 +194,7 @@ export function CourseAnalyticsScreen({
 
         {/* Revenue Breakdown */}
         <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950 rounded-2xl p-5 shadow-md border-2 border-green-200 dark:border-green-800">
-          <h3 className="text-card-foreground mb-4">💰 Revenue Breakdown</h3>
+          <h3 className="text-card-foreground mb-4">ðŸ’° Revenue Breakdown</h3>
           <div className="space-y-3">
             <div className="flex justify-between">
               <span className="text-muted-foreground">Students Enrolled</span>
@@ -217,3 +217,4 @@ export function CourseAnalyticsScreen({
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { ArrowLeft, Plus, Trash2, Save } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -32,18 +32,18 @@ export interface CourseData {
 }
 
 const categoryOptions = [
-  { value: 'creativity', label: 'Creativity', icon: '🎨' },
-  { value: 'teamwork', label: 'Teamwork', icon: '🤝' },
-  { value: 'daily-habits', label: 'Daily Habits', icon: '📅' },
-  { value: 'emotions', label: 'Emotions', icon: '❤️' },
-  { value: 'problem-solving', label: 'Problem Solving', icon: '🧩' },
-  { value: 'communication', label: 'Communication', icon: '💬' },
-  { value: 'math', label: 'Math', icon: '🔢' },
-  { value: 'reading', label: 'Reading', icon: '📚' },
-  { value: 'science', label: 'Science', icon: '🔬' },
-  { value: 'art', label: 'Art', icon: '🖼️' },
-  { value: 'music', label: 'Music', icon: '🎵' },
-  { value: 'coding', label: 'Coding', icon: '💻' },
+  { value: 'creativity', label: 'Creativity', icon: 'ðŸŽ¨' },
+  { value: 'teamwork', label: 'Teamwork', icon: 'ðŸ¤' },
+  { value: 'daily-habits', label: 'Daily Habits', icon: 'ðŸ“…' },
+  { value: 'emotions', label: 'Emotions', icon: 'â¤ï¸' },
+  { value: 'problem-solving', label: 'Problem Solving', icon: 'ðŸ§©' },
+  { value: 'communication', label: 'Communication', icon: 'ðŸ’¬' },
+  { value: 'math', label: 'Math', icon: 'ðŸ”¢' },
+  { value: 'reading', label: 'Reading', icon: 'ðŸ“š' },
+  { value: 'science', label: 'Science', icon: 'ðŸ”¬' },
+  { value: 'art', label: 'Art', icon: 'ðŸ–¼ï¸' },
+  { value: 'music', label: 'Music', icon: 'ðŸŽµ' },
+  { value: 'coding', label: 'Coding', icon: 'ðŸ’»' },
 ];
 
 export function CourseCreatorScreen({
@@ -56,7 +56,7 @@ export function CourseCreatorScreen({
   const [title, setTitle] = useState(existingCourse?.title || '');
   const [description, setDescription] = useState(existingCourse?.description || '');
   const [category, setCategory] = useState(existingCourse?.category || '');
-  const [icon, setIcon] = useState(existingCourse?.icon || '📚');
+  const [icon, setIcon] = useState(existingCourse?.icon || 'ðŸ“š');
   const [lessons, setLessons] = useState<Lesson[]>(existingCourse?.lessons || []);
   const [error, setError] = useState('');
 
@@ -153,7 +153,7 @@ export function CourseCreatorScreen({
     <div className="h-full bg-gradient-to-b from-purple-50 to-white dark:from-purple-950 dark:to-background overflow-y-auto pb-20">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-6 rounded-b-3xl shadow-lg sticky top-0 z-10">
-        <div className="flex items-center gap-4 mb-2">
+        <div className="flex items-center gap-6 mb-2">
           <button
             onClick={onBack}
             className="p-2 hover:bg-white/20 rounded-xl transition-colors"
@@ -244,7 +244,7 @@ export function CourseCreatorScreen({
               {lessons.map((lesson, index) => (
                 <div
                   key={lesson.id}
-                  className="border-2 border-border rounded-xl p-4 space-y-3"
+                  className="border-2 border-border rounded-xl p-6 space-y-3"
                 >
                   <div className="flex items-center justify-between">
                     <p className="text-card-foreground">Lesson {index + 1}</p>
@@ -299,13 +299,13 @@ export function CourseCreatorScreen({
 
         {/* Revenue Info */}
         <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950 rounded-2xl p-5 shadow-md border-2 border-green-200 dark:border-green-800">
-          <h3 className="text-card-foreground mb-2">💰 {t.revenuePerStudent}</h3>
+          <h3 className="text-card-foreground mb-2">ðŸ’° {t.revenuePerStudent}</h3>
           <p className="text-muted-foreground mb-3">
             Earn $2.00 per student who enrolls in your course. Students are charged when they start your course.
           </p>
-          <div className="bg-white dark:bg-card rounded-xl p-3">
+          <div className="bg-white dark:bg-card rounded-xl p-5">
             <p className="text-muted-foreground">Potential Earnings:</p>
-            <div className="flex items-baseline gap-2 mt-1">
+            <div className="flex items-baseline gap-4 mt-1">
               <span className="text-card-foreground">$2.00</span>
               <span className="text-muted-foreground">per student</span>
             </div>
@@ -313,7 +313,7 @@ export function CourseCreatorScreen({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-3 sticky bottom-6">
+        <div className="flex gap-5 sticky bottom-6">
           <Button
             onClick={handleSaveAsDraft}
             variant="outline"
@@ -333,3 +333,4 @@ export function CourseCreatorScreen({
     </div>
   );
 }
+

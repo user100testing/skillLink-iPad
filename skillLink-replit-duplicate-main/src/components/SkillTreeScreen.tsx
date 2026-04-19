@@ -1,4 +1,4 @@
-import { ArrowLeft, Star, TrendingUp, Heart, Home, GraduationCap, Palette, Users } from 'lucide-react';
+﻿import { ArrowLeft, Star, TrendingUp, Heart, Home, GraduationCap, Palette, Users } from 'lucide-react';
 import { Progress } from './ui/progress';
 import { Badge } from './ui/badge';
 
@@ -74,18 +74,18 @@ export function SkillTreeScreen({ onBack, skillLevels }: SkillTreeScreenProps) {
     <div className="h-full bg-gradient-to-b from-purple-50 to-white pb-20 overflow-y-auto">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 pt-12 pb-8 rounded-b-[3rem] shadow-lg">
-        <button onClick={onBack} className="text-white mb-4 flex items-center gap-2">
+        <button onClick={onBack} className="text-white mb-4 flex items-center gap-4">
           <ArrowLeft size={20} />
           Back
         </button>
         
         <div className="text-center">
-          <div className="text-6xl mb-3">🌟</div>
+          <div className="text-6xl mb-3">ðŸŒŸ</div>
           <h2 className="text-white mb-2">Skill Tree</h2>
           <p className="text-purple-100 mb-4">Level up your life skills!</p>
           
           <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-3 inline-block">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
               <Star size={20} className="text-yellow-300" fill="currentColor" />
               <span className="text-white">Total Level: {getTotalLevel()}</span>
             </div>
@@ -95,9 +95,9 @@ export function SkillTreeScreen({ onBack, skillLevels }: SkillTreeScreenProps) {
 
       {/* Skills List */}
       <div className="px-6 mt-6 space-y-4">
-        <div className="bg-gradient-to-r from-blue-100 to-purple-100 border-2 border-blue-300 rounded-2xl p-4 mb-2">
-          <h3 className="text-blue-700 mb-1">📈 Track Your Growth</h3>
-          <p className="text-blue-600 text-sm">Complete quests to earn XP and level up each skill!</p>
+        <div className="bg-gradient-to-r from-blue-100 to-purple-100 border-2 border-blue-300 rounded-2xl p-6 mb-2">
+          <h3 className="text-blue-700 mb-1">ðŸ“ˆ Track Your Growth</h3>
+          <p className="text-blue-600 text-lg">Complete quests to earn XP and level up each skill!</p>
         </div>
 
         {skills.map((skill) => {
@@ -112,13 +112,13 @@ export function SkillTreeScreen({ onBack, skillLevels }: SkillTreeScreenProps) {
               className={`bg-white rounded-3xl p-6 shadow-md border-2 ${skill.borderColor}`}
             >
               {/* Skill Header */}
-              <div className="flex items-center gap-4 mb-4">
-                <div className={`p-3 rounded-2xl bg-gradient-to-br ${skill.bgColor}`}>
+              <div className="flex items-center gap-6 mb-4">
+                <div className={`p-5 rounded-2xl bg-gradient-to-br ${skill.bgColor}`}>
                   <Icon size={28} className={skill.textColor} />
                 </div>
                 <div className="flex-1">
                   <h3 className={skill.textColor}>{skill.name}</h3>
-                  <p className="text-slate-500 text-sm">Level {skillData.level}</p>
+                  <p className="text-slate-500 text-lg">Level {skillData.level}</p>
                 </div>
                 <div className="text-right">
                   <Badge className={`bg-gradient-to-r ${skill.color} text-white`}>
@@ -130,16 +130,16 @@ export function SkillTreeScreen({ onBack, skillLevels }: SkillTreeScreenProps) {
               {/* Progress Bar */}
               <div className="mb-3">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-slate-600 text-sm">Progress to Level {skillData.level + 1}</span>
-                  <span className="text-slate-500 text-sm">{xpToNextLevel} XP needed</span>
+                  <span className="text-slate-600 text-lg">Progress to Level {skillData.level + 1}</span>
+                  <span className="text-slate-500 text-lg">{xpToNextLevel} XP needed</span>
                 </div>
                 <Progress value={progress} className="h-3" />
               </div>
 
               {/* Streak */}
               {skillData.streak > 0 && (
-                <div className={`${skill.bgColor} rounded-xl px-4 py-2 flex items-center gap-2`}>
-                  <span className="text-xl">🔥</span>
+                <div className={`${skill.bgColor} rounded-xl px-4 py-2 flex items-center gap-4`}>
+                  <span className="text-xl">ðŸ”¥</span>
                   <span className={skill.textColor}>
                     {skillData.streak} day streak!
                   </span>
@@ -148,9 +148,9 @@ export function SkillTreeScreen({ onBack, skillLevels }: SkillTreeScreenProps) {
 
               {/* Milestones */}
               {skillData.level >= 5 && (
-                <div className="mt-3 flex items-center gap-2">
+                <div className="mt-3 flex items-center gap-4">
                   <TrendingUp size={16} className="text-green-600" />
-                  <span className="text-green-700 text-sm">
+                  <span className="text-green-700 text-lg">
                     {skillData.level >= 10 ? 'Master Level!' : 'Expert Level!'}
                   </span>
                 </div>
@@ -161,16 +161,16 @@ export function SkillTreeScreen({ onBack, skillLevels }: SkillTreeScreenProps) {
 
         {/* Overall Stats */}
         <div className="bg-gradient-to-r from-yellow-100 to-orange-100 border-2 border-yellow-300 rounded-3xl p-6 mt-6">
-          <h3 className="text-orange-700 mb-4 text-center">🏆 Overall Progress</h3>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white rounded-2xl p-4 text-center">
-              <p className="text-slate-600 text-sm mb-1">Total XP</p>
+          <h3 className="text-orange-700 mb-4 text-center">ðŸ† Overall Progress</h3>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl p-6 text-center">
+              <p className="text-slate-600 text-lg mb-1">Total XP</p>
               <p className="text-orange-600 text-2xl">
                 {Object.values(skillLevels).reduce((sum, skill) => sum + skill.xp, 0)}
               </p>
             </div>
-            <div className="bg-white rounded-2xl p-4 text-center">
-              <p className="text-slate-600 text-sm mb-1">Active Streaks</p>
+            <div className="bg-white rounded-2xl p-6 text-center">
+              <p className="text-slate-600 text-lg mb-1">Active Streaks</p>
               <p className="text-orange-600 text-2xl">
                 {Object.values(skillLevels).filter(skill => skill.streak > 0).length}
               </p>
@@ -180,8 +180,8 @@ export function SkillTreeScreen({ onBack, skillLevels }: SkillTreeScreenProps) {
 
         {/* Motivation */}
         <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl p-6 text-center shadow-lg mb-6">
-          <p className="text-white text-lg mb-2">Keep up the amazing work! 💪</p>
-          <p className="text-purple-100 text-sm">
+          <p className="text-white text-lg mb-2">Keep up the amazing work! ðŸ’ª</p>
+          <p className="text-purple-100 text-lg">
             You're building skills that will last a lifetime!
           </p>
         </div>
@@ -189,3 +189,4 @@ export function SkillTreeScreen({ onBack, skillLevels }: SkillTreeScreenProps) {
     </div>
   );
 }
+

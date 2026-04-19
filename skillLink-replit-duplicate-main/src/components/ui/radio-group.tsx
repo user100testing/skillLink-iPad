@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group@1.2.3";
@@ -13,7 +13,7 @@ function RadioGroup({
   return (
     <RadioGroupPrimitive.Root
       data-slot="radio-group"
-      className={cn("grid gap-3", className)}
+      className={cn("grid gap-5", className)}
       {...props}
     />
   );
@@ -43,3 +43,4 @@ function RadioGroupItem({
 }
 
 export { RadioGroup, RadioGroupItem };
+
