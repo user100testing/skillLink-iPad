@@ -20,7 +20,10 @@
     "recharts": "^2.12.7",
     "lucide-react": "^0.453.0",
     "clsx": "^2.1.1",
-    "tailwind-merge": "^2.5.4"
+    "tailwind-merge": "^2.5.4",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-label": "^2.1.0",
+    "class-variance-authority": "^0.7.0"
   },
   "devDependencies": {
     "@capacitor/cli": "^6.0.0",
