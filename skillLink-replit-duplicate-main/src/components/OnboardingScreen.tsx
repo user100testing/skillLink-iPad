@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { ChevronRight } from 'lucide-react';
 import logo from '../assets/skilllink-logo.png';
@@ -9,25 +9,25 @@ interface OnboardingScreenProps {
 
 const slides = [
   {
-    emoji: 'ðŸŽ¯',
+    emoji: '🎯',
     title: 'Learn Real Skills',
     subtitle: 'Master life skills through fun daily quests and challenges',
     bg: 'from-[#2563eb] to-[#1d4ed8]',
   },
   {
-    emoji: 'ðŸª™',
+    emoji: '🪙',
     title: 'Earn SkillCoins',
     subtitle: 'Complete quests to earn SC coins and climb the leaderboard',
     bg: 'from-purple-600 to-purple-800',
   },
   {
-    emoji: 'ðŸ“š',
+    emoji: '📚',
     title: 'Take Courses',
     subtitle: 'Learn drawing, cooking, coding and more with guided lessons',
     bg: 'from-emerald-500 to-emerald-700',
   },
   {
-    emoji: 'ðŸ‘¨â€ðŸ‘©â€ðŸ‘§',
+    emoji: '👨‍👩‍👧',
     title: 'Family Together',
     subtitle: 'Parents track progress and cheer you on every step',
     bg: 'from-pink-500 to-rose-600',
@@ -93,7 +93,7 @@ export function OnboardingScreen({ onGetStarted }: OnboardingScreenProps) {
             <p style={{
               opacity: splashPhase === 'visible' ? 1 : 0,
               transition: 'opacity 0.4s ease 0.5s',
-            }} className="text-blue-200 text-lg mt-2">Turn screen time into skill time</p>
+            }} className="text-blue-200 text-base mt-2">Turn screen time into skill time</p>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@ export function OnboardingScreen({ onGetStarted }: OnboardingScreenProps) {
   return (
     <div className={`h-full bg-gradient-to-b ${slide.bg} flex flex-col`} style={{ transition: 'background 0.5s ease' }}>
       <div className="flex justify-end px-6 pt-12">
-        <button onClick={onGetStarted} className="text-white/70 text-lg px-4 py-2 rounded-full border border-white/30">
+        <button onClick={onGetStarted} className="text-white/70 text-sm px-4 py-2 rounded-full border border-white/30">
           Skip
         </button>
       </div>
@@ -121,7 +121,7 @@ export function OnboardingScreen({ onGetStarted }: OnboardingScreenProps) {
       </div>
 
       <div className="px-8 pb-12">
-        <div className="flex justify-center gap-4 mb-8">
+        <div className="flex justify-center gap-2 mb-8">
           {slides.map((_, i) => (
             <button key={i} onClick={() => goToSlide(i)} className="rounded-full transition-all duration-300" style={{
               width: i === currentSlide ? 24 : 8, height: 8,
@@ -133,10 +133,10 @@ export function OnboardingScreen({ onGetStarted }: OnboardingScreenProps) {
         {currentSlide === slides.length - 1 ? (
           <Button onClick={onGetStarted} className="w-full py-6 rounded-2xl text-xl font-bold shadow-2xl"
             style={{ background: '#facc15', color: '#1e3a8a' }}>
-            Get Started ðŸš€
+            Get Started 🚀
           </Button>
         ) : (
-          <button onClick={goToNext} className="w-full py-5 rounded-2xl text-xl font-semibold flex items-center justify-center gap-4"
+          <button onClick={goToNext} className="w-full py-5 rounded-2xl text-xl font-semibold flex items-center justify-center gap-2"
             style={{ background: 'rgba(255,255,255,0.2)', color: 'white', border: '2px solid rgba(255,255,255,0.4)' }}>
             Next <ChevronRight size={22} />
           </button>
@@ -145,4 +145,3 @@ export function OnboardingScreen({ onGetStarted }: OnboardingScreenProps) {
     </div>
   );
 }
-

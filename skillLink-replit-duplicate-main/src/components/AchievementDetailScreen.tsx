@@ -1,4 +1,4 @@
-﻿import { ArrowLeft, Lock, Star, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Lock, Star, TrendingUp } from 'lucide-react';
 import { Progress } from './ui/progress';
 
 interface AchievementDetailScreenProps {
@@ -10,7 +10,7 @@ export function AchievementDetailScreen({ badgeId, onBack }: AchievementDetailSc
   const badgeData: Record<number, any> = {
     1: {
       name: 'Early Bird',
-      emoji: 'ðŸŒ…',
+      emoji: '🌅',
       unlocked: true,
       description: 'Complete 5 morning quests before 10 AM',
       progress: 5,
@@ -25,7 +25,7 @@ export function AchievementDetailScreen({ badgeId, onBack }: AchievementDetailSc
     },
     13: {
       name: 'Speedster',
-      emoji: 'âš¡',
+      emoji: '⚡',
       unlocked: false,
       description: 'Complete 10 quests in a single day',
       progress: 6,
@@ -41,7 +41,7 @@ export function AchievementDetailScreen({ badgeId, onBack }: AchievementDetailSc
     },
     14: {
       name: 'Champion',
-      emoji: 'ðŸ†',
+      emoji: '🏆',
       unlocked: false,
       description: 'Reach #1 position on the leaderboard',
       progress: 0,
@@ -68,7 +68,7 @@ export function AchievementDetailScreen({ badgeId, onBack }: AchievementDetailSc
           ? 'bg-gradient-to-r from-yellow-400 to-orange-400'
           : 'bg-gradient-to-r from-slate-400 to-slate-500'
       }`}>
-        <button onClick={onBack} className="text-white mb-6 flex items-center gap-4">
+        <button onClick={onBack} className="text-white mb-6 flex items-center gap-2">
           <ArrowLeft size={20} />
           Back
         </button>
@@ -102,7 +102,7 @@ export function AchievementDetailScreen({ badgeId, onBack }: AchievementDetailSc
               <span className="text-purple-600">{badge.progress}/{badge.total}</span>
             </div>
             <Progress value={progressPercent} className="h-4 bg-purple-100 mb-3" />
-            <div className="flex items-center gap-4 text-slate-600">
+            <div className="flex items-center gap-2 text-slate-600">
               <TrendingUp size={18} className="text-green-500" />
               <span>{badge.total - badge.progress} more to go!</span>
             </div>
@@ -123,7 +123,7 @@ export function AchievementDetailScreen({ badgeId, onBack }: AchievementDetailSc
         <h3 className="text-slate-700 mb-4">Tips to Unlock</h3>
         <div className="space-y-3">
           {badge.tips.map((tip: string, index: number) => (
-            <div key={index} className="bg-white border-2 border-green-100 rounded-2xl p-6 flex gap-5">
+            <div key={index} className="bg-white border-2 border-green-100 rounded-2xl p-4 flex gap-3">
               <div className="bg-green-500 text-white rounded-full w-7 h-7 flex items-center justify-center flex-shrink-0">
                 {index + 1}
               </div>
@@ -146,7 +146,7 @@ export function AchievementDetailScreen({ badgeId, onBack }: AchievementDetailSc
       {badge.unlocked && (
         <div className="px-6 mb-6">
           <div className="bg-green-50 border-2 border-green-300 rounded-3xl p-6 text-center">
-            <h3 className="text-green-600 mb-2">ðŸŽ‰ You Did It!</h3>
+            <h3 className="text-green-600 mb-2">🎉 You Did It!</h3>
             <p className="text-green-700">Keep up the amazing work and unlock more badges!</p>
           </div>
         </div>

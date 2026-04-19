@@ -306,17 +306,17 @@ export function CourseDetailScreen({ courseId, onBack }: CourseDetailScreenProps
       return (
         <div className="h-full bg-white flex flex-col">
           <div className="bg-gradient-to-r from-indigo-500 to-purple-600 px-6 pt-12 pb-6">
-            <button onClick={() => setActiveLesson(null)} className="text-white mb-3 flex items-center gap-4">
+            <button onClick={() => setActiveLesson(null)} className="text-white mb-3 flex items-center gap-2">
               <X size={20} /> Close
             </button>
-            <div className="flex items-center gap-4 mb-1">
-              <span className="bg-white/20 text-white text-lg font-bold px-3 py-1 rounded-full">ðŸ“ Lesson Quiz</span>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full">ðŸ“ Lesson Quiz</span>
             </div>
             <h2 className="text-white text-xl font-bold">{activeLesson.title}</h2>
             <div className="mt-3 bg-white/20 rounded-full h-2">
               <div className="bg-yellow-400 h-2 rounded-full transition-all" style={{ width: `${((currentQuestion) / quiz.length) * 100}%` }} />
             </div>
-            <p className="text-white/70 text-lg mt-1">Question {currentQuestion + 1} of {quiz.length}</p>
+            <p className="text-white/70 text-sm mt-1">Question {currentQuestion + 1} of {quiz.length}</p>
           </div>
 
           <div className="flex-1 overflow-y-auto px-6 py-6">
@@ -357,30 +357,30 @@ export function CourseDetailScreen({ courseId, onBack }: CourseDetailScreenProps
       return (
         <div className="h-full bg-white flex flex-col">
           <div className={`bg-gradient-to-r ${quizPassed ? 'from-green-500 to-emerald-600' : 'from-orange-500 to-red-500'} px-6 pt-12 pb-8 rounded-b-[3rem]`}>
-            <button onClick={() => setActiveLesson(null)} className="text-white mb-4 flex items-center gap-4">
+            <button onClick={() => setActiveLesson(null)} className="text-white mb-4 flex items-center gap-2">
               <X size={20} /> Close
             </button>
             <div className="text-center text-white">
               <div className="text-7xl mb-4">{quizPassed ? 'ðŸ†' : 'ðŸ˜…'}</div>
               <h2 className="text-3xl font-black mb-2">{quizPassed ? 'Passed!' : 'Not quite!'}</h2>
               <p className="text-white/80 text-lg mb-1">You scored <span className="font-black text-yellow-300">{quizScore}%</span></p>
-              <p className="text-white/60 text-lg">{quizPassed ? 'You need 80% or more â€” great work!' : 'You need 80% or more to pass. Try again!'}</p>
+              <p className="text-white/60 text-sm">{quizPassed ? 'You need 80% or more â€” great work!' : 'You need 80% or more to pass. Try again!'}</p>
             </div>
           </div>
 
-          <div className="flex-1 flex flex-col items-center justify-center px-6 gap-6">
+          <div className="flex-1 flex flex-col items-center justify-center px-6 gap-4">
             {/* Score breakdown */}
             <div className="w-full bg-gray-50 rounded-3xl p-5 border-2 border-gray-100">
-              <p className="text-gray-500 font-semibold text-lg mb-3">Quiz Breakdown</p>
+              <p className="text-gray-500 font-semibold text-sm mb-3">Quiz Breakdown</p>
               {quiz.map((q, i) => {
                 const userAns = quizAnswers[i];
                 const isCorrect = userAns === q.correct;
                 return (
-                  <div key={i} className={`flex items-center gap-5 p-5 rounded-2xl mb-2 ${isCorrect ? 'bg-green-50' : 'bg-red-50'}`}>
-                    <span className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-white text-lg font-bold ${isCorrect ? 'bg-green-500' : 'bg-red-400'}`}>
+                  <div key={i} className={`flex items-center gap-3 p-3 rounded-2xl mb-2 ${isCorrect ? 'bg-green-50' : 'bg-red-50'}`}>
+                    <span className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold ${isCorrect ? 'bg-green-500' : 'bg-red-400'}`}>
                       {isCorrect ? 'âœ“' : 'âœ•'}
                     </span>
-                    <span className="text-gray-700 text-lg flex-1">{q.question}</span>
+                    <span className="text-gray-700 text-sm flex-1">{q.question}</span>
                   </div>
                 );
               })}
@@ -414,7 +414,7 @@ export function CourseDetailScreen({ courseId, onBack }: CourseDetailScreenProps
       <div className="h-full bg-white flex flex-col overflow-hidden">
         {/* Header */}
         <div className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 pt-12 pb-6 flex-shrink-0">
-          <button onClick={() => setActiveLesson(null)} className="text-white mb-3 flex items-center gap-4">
+          <button onClick={() => setActiveLesson(null)} className="text-white mb-3 flex items-center gap-2">
             <X size={20} /> Close
           </button>
           <h2 className="text-white text-xl font-bold">{activeLesson.title}</h2>
@@ -424,7 +424,7 @@ export function CourseDetailScreen({ courseId, onBack }: CourseDetailScreenProps
               style={{ width: `${stepProgressPct}%` }}
             />
           </div>
-          <p className="text-white/70 text-lg mt-1">Step {activeStep + 1} of {steps.length}</p>
+          <p className="text-white/70 text-sm mt-1">Step {activeStep + 1} of {steps.length}</p>
         </div>
 
         {/* Content */}
@@ -442,15 +442,15 @@ export function CourseDetailScreen({ courseId, onBack }: CourseDetailScreenProps
               allowFullScreen
             />
           </div>
-          <p className="text-gray-400 text-lg text-center mb-5 italic">{step.videoLabel}</p>
+          <p className="text-gray-400 text-xs text-center mb-5 italic">{step.videoLabel}</p>
 
           {/* Instructions */}
           <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-5 border-2 border-purple-100 mb-6">
-            <p className="text-lg text-gray-700 leading-relaxed">{step.instructions}</p>
+            <p className="text-base text-gray-700 leading-relaxed">{step.instructions}</p>
           </div>
 
           {/* Step dots */}
-          <div className="flex justify-center gap-4 mb-4">
+          <div className="flex justify-center gap-2 mb-4">
             {steps.map((_, i) => (
               <div
                 key={i}
@@ -480,31 +480,31 @@ export function CourseDetailScreen({ courseId, onBack }: CourseDetailScreenProps
     <div className="h-full bg-gradient-to-b from-purple-50 to-white pb-20 overflow-y-auto">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 pt-12 pb-6 rounded-b-[3rem] shadow-lg">
-        <button onClick={onBack} className="text-white mb-4 flex items-center gap-4">
+        <button onClick={onBack} className="text-white mb-4 flex items-center gap-2">
           <ArrowLeft size={20} /> Back
         </button>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-3">
           <span className="text-5xl">{course.emoji}</span>
           <div>
             <h2 className="text-white mb-1 font-bold text-xl">{course.title}</h2>
             <Badge className="bg-white/20 text-white border-0">+{course.points} SC coins</Badge>
           </div>
         </div>
-        <p className="text-purple-100 text-lg mt-3">{course.description}</p>
+        <p className="text-purple-100 text-sm mt-3">{course.description}</p>
       </div>
 
       {/* How it works */}
       <div className="px-6 mt-5">
-        <div className="bg-indigo-50 border-2 border-indigo-100 rounded-3xl p-6">
-          <p className="text-indigo-700 font-bold text-lg mb-2">ðŸ“‹ How it works</p>
-          <div className="flex items-center gap-4 text-indigo-600 text-lg">
+        <div className="bg-indigo-50 border-2 border-indigo-100 rounded-3xl p-4">
+          <p className="text-indigo-700 font-bold text-sm mb-2">ðŸ“‹ How it works</p>
+          <div className="flex items-center gap-2 text-indigo-600 text-xs">
             <span className="bg-indigo-200 rounded-full px-2 py-0.5 font-semibold">Step Videos</span>
             <span>â†’</span>
             <span className="bg-purple-200 rounded-full px-2 py-0.5 font-semibold">Lesson Quiz</span>
             <span>â†’</span>
             <span className="bg-green-200 rounded-full px-2 py-0.5 font-semibold">Next Lesson</span>
           </div>
-          <p className="text-indigo-500 text-lg mt-2">Pass the quiz (80%+) to unlock the next lesson!</p>
+          <p className="text-indigo-500 text-xs mt-2">Pass the quiz (80%+) to unlock the next lesson!</p>
         </div>
       </div>
 
@@ -537,7 +537,7 @@ export function CourseDetailScreen({ courseId, onBack }: CourseDetailScreenProps
           <div className="bg-green-50 border-2 border-green-200 rounded-3xl p-5 text-center">
             <div className="text-4xl mb-2">ðŸ†</div>
             <p className="text-green-700 font-bold text-lg">Course Complete!</p>
-            <p className="text-green-600 text-lg">You earned {course.points} SC coins!</p>
+            <p className="text-green-600 text-sm">You earned {course.points} SC coins!</p>
           </div>
         </div>
       )}
@@ -553,7 +553,7 @@ export function CourseDetailScreen({ courseId, onBack }: CourseDetailScreenProps
                 key={lesson.id}
                 onClick={() => startLesson(lesson)}
                 disabled={!isUnlocked}
-                className={`w-full flex items-center gap-6 p-6 rounded-2xl border-2 transition-all active:scale-95 ${
+                className={`w-full flex items-center gap-4 p-4 rounded-2xl border-2 transition-all active:scale-95 ${
                   lesson.completed
                     ? 'bg-green-50 border-green-200'
                     : isUnlocked
@@ -576,7 +576,7 @@ export function CourseDetailScreen({ courseId, onBack }: CourseDetailScreenProps
                   <p className={`font-semibold ${lesson.completed ? 'text-green-700' : isUnlocked ? 'text-gray-800' : 'text-gray-400'}`}>
                     Lesson {lesson.id}: {lesson.title}
                   </p>
-                  <p className="text-gray-400 text-lg">{lesson.duration} â€¢ {lesson.steps.length} steps + quiz</p>
+                  <p className="text-gray-400 text-sm">{lesson.duration} â€¢ {lesson.steps.length} steps + quiz</p>
                 </div>
                 {lesson.completed && <Star size={20} className="text-yellow-400 flex-shrink-0" fill="#facc15" />}
                 {isUnlocked && !lesson.completed && <ChevronRight size={20} className="text-purple-400 flex-shrink-0" />}

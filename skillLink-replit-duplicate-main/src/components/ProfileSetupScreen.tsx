@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
@@ -18,19 +18,19 @@ export interface UserProfile {
 }
 
 const KID_EMOJIS = [
-  'ðŸ˜Š', 'ðŸ˜„', 'ðŸ¤©', 'ðŸ˜Ž', 'ðŸ¥³', 'ðŸ¦¸', 'ðŸ§™', 'ðŸ§’', 'ðŸ‘¦', 'ðŸ‘§',
-  'ðŸ¶', 'ðŸ±', 'ðŸ¦Š', 'ðŸ¸', 'ðŸ§', 'ðŸ¦', 'ðŸ¼', 'ðŸ¦„', 'ðŸ‰', 'ðŸ¦‹',
-  'âš½', 'ðŸ€', 'ðŸŽ¸', 'ðŸŽ¨', 'ðŸš€', 'ðŸŒŸ', 'âš¡', 'ðŸ•', 'ðŸ­', 'ðŸŒˆ',
+  '😊', '😄', '🤩', '😎', '🥳', '🦸', '🧙', '🧒', '👦', '👧',
+  '🐶', '🐱', '🦊', '🐸', '🐧', '🦁', '🐼', '🦄', '🐉', '🦋',
+  '⚽', '🏀', '🎸', '🎨', '🚀', '🌟', '⚡', '🍕', '🍭', '🌈',
 ];
 
 const PARENT_EMOJIS = [
-  'ðŸ‘¨â€ðŸ’¼', 'ðŸ‘©â€ðŸ’¼', 'ðŸ‘¨â€ðŸ«', 'ðŸ‘©â€ðŸ«', 'ðŸ‘¨â€ðŸ³', 'ðŸ‘©â€ðŸ³', 'ðŸ‘¨â€âš•ï¸', 'ðŸ‘©â€âš•ï¸', 'ðŸ§‘â€ðŸ’»', 'ðŸ‘©â€ðŸ’»',
-  'ðŸ˜Š', 'ðŸ™‚', 'ðŸ˜Ž', 'ðŸ¤—', 'ðŸ’ª', 'ðŸŒŸ', 'â¤ï¸', 'ðŸ†', 'ðŸŽ¯', 'ðŸŒ±',
+  '👨‍💼', '👩‍💼', '👨‍🏫', '👩‍🏫', '👨‍🍳', '👩‍🍳', '👨‍⚕️', '👩‍⚕️', '🧑‍💻', '👩‍💻',
+  '😊', '🙂', '😎', '🤗', '💪', '🌟', '❤️', '🏆', '🎯', '🌱',
 ];
 
 function EmojiPicker({ emojis, selected, onSelect }: { emojis: string[]; selected: string; onSelect: (e: string) => void }) {
   return (
-    <div className="grid grid-cols-6 gap-4">
+    <div className="grid grid-cols-6 gap-2">
       {emojis.map((emoji) => (
         <button
           key={emoji}
@@ -54,7 +54,7 @@ export function ProfileSetupScreen({ userType, onComplete }: ProfileSetupScreenP
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [childCount, setChildCount] = useState('1');
-  const [selectedEmoji, setSelectedEmoji] = useState(userType === 'kid' ? 'ðŸ˜Š' : 'ðŸ‘¨â€ðŸ’¼');
+  const [selectedEmoji, setSelectedEmoji] = useState(userType === 'kid' ? '😊' : '👨‍💼');
 
   const emojis = userType === 'kid' ? KID_EMOJIS : PARENT_EMOJIS;
 
@@ -82,17 +82,17 @@ export function ProfileSetupScreen({ userType, onComplete }: ProfileSetupScreenP
           <div className="text-center mb-6">
             <div className="text-7xl mb-3 animate-bounce">{selectedEmoji}</div>
             <h2 className="text-slate-700 dark:text-slate-200 font-bold mb-1">Pick Your Avatar!</h2>
-            <p className="text-slate-500 dark:text-slate-400 text-lg">Choose an emoji that feels like you ðŸŽ‰</p>
+            <p className="text-slate-500 dark:text-slate-400 text-sm">Choose an emoji that feels like you 🎉</p>
           </div>
 
           <div className="bg-white dark:bg-card rounded-3xl p-5 shadow-md border-2 border-blue-100 dark:border-blue-900 mb-6">
             <Label className="text-slate-700 dark:text-slate-200 mb-4 block font-semibold">
-              {userType === 'kid' ? 'ðŸ‘‡ Pick your emoji avatar:' : 'ðŸ‘‡ Choose your profile emoji:'}
+              {userType === 'kid' ? '👇 Pick your emoji avatar:' : '👇 Choose your profile emoji:'}
             </Label>
             <EmojiPicker emojis={emojis} selected={selectedEmoji} onSelect={setSelectedEmoji} />
           </div>
 
-          <div className="flex gap-5">
+          <div className="flex gap-3">
             <Button
               type="button"
               onClick={() => setStep('info')}
@@ -107,7 +107,7 @@ export function ProfileSetupScreen({ userType, onComplete }: ProfileSetupScreenP
               className="h-14 bg-gradient-to-r from-[#2563eb] to-purple-500 hover:from-[#1d4ed8] hover:to-purple-600 text-white rounded-3xl flex-1 shadow-lg font-bold"
             >
               <Sparkles className="mr-2" size={18} />
-              {userType === 'kid' ? 'Start Learning! ðŸš€' : 'Continue'}
+              {userType === 'kid' ? 'Start Learning! 🚀' : 'Continue'}
             </Button>
           </div>
         </div>
@@ -126,13 +126,13 @@ export function ProfileSetupScreen({ userType, onComplete }: ProfileSetupScreenP
             {userType === 'kid' ? 'Tell us about you!' : 'Parent Profile Setup'}
           </h2>
           <p className="text-slate-500 dark:text-slate-400">
-            {userType === 'kid' ? "Let's create your awesome profile! ðŸŽ‰" : 'Help us personalize your experience'}
+            {userType === 'kid' ? "Let's create your awesome profile! 🎉" : 'Help us personalize your experience'}
           </p>
         </div>
 
         <form onSubmit={handleInfoNext} className="space-y-5">
           <div className="bg-white dark:bg-card rounded-3xl p-6 shadow-md border-2 border-blue-100 dark:border-blue-900">
-            <Label htmlFor="name" className="text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-4 font-semibold">
+            <Label htmlFor="name" className="text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2 font-semibold">
               <User size={18} className="text-blue-500" />
               {userType === 'kid' ? "What's your name?" : 'Your Name'}
             </Label>
@@ -147,7 +147,7 @@ export function ProfileSetupScreen({ userType, onComplete }: ProfileSetupScreenP
           </div>
 
           <div className="bg-white dark:bg-card rounded-3xl p-6 shadow-md border-2 border-blue-100 dark:border-blue-900">
-            <Label htmlFor="age" className="text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-4 font-semibold">
+            <Label htmlFor="age" className="text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2 font-semibold">
               <Calendar size={18} className="text-purple-500" />
               {userType === 'kid' ? 'How old are you?' : 'Your Age'}
             </Label>
@@ -165,7 +165,7 @@ export function ProfileSetupScreen({ userType, onComplete }: ProfileSetupScreenP
 
           {userType === 'parent' && (
             <div className="bg-white dark:bg-card rounded-3xl p-6 shadow-md border-2 border-blue-100 dark:border-blue-900">
-              <Label htmlFor="childCount" className="text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-4 font-semibold">
+              <Label htmlFor="childCount" className="text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2 font-semibold">
                 <Users size={18} className="text-green-500" />
                 How many children do you have?
               </Label>
@@ -186,7 +186,7 @@ export function ProfileSetupScreen({ userType, onComplete }: ProfileSetupScreenP
           <Button
             type="submit"
             disabled={!isInfoValid}
-            className="w-full h-14 bg-gradient-to-r from-[#2563eb] to-purple-500 hover:from-[#1d4ed8] hover:to-purple-600 text-white rounded-3xl shadow-lg disabled:opacity-50 font-bold flex items-center justify-center gap-4"
+            className="w-full h-14 bg-gradient-to-r from-[#2563eb] to-purple-500 hover:from-[#1d4ed8] hover:to-purple-600 text-white rounded-3xl shadow-lg disabled:opacity-50 font-bold flex items-center justify-center gap-2"
           >
             Pick Your Avatar
             <ChevronRight size={18} />
@@ -196,4 +196,3 @@ export function ProfileSetupScreen({ userType, onComplete }: ProfileSetupScreenP
     </div>
   );
 }
-

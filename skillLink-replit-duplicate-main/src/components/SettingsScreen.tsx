@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import {
   ArrowLeft,
   Sun,
@@ -61,17 +61,17 @@ export function SettingsScreen({
   ];
 
   const languages = [
-    { name: "English", value: "en", flag: "ðŸ‡ºðŸ‡¸" },
-    { name: "EspaÃ±ol", value: "es", flag: "ðŸ‡ªðŸ‡¸" },
-    { name: "FranÃ§ais", value: "fr", flag: "ðŸ‡«ðŸ‡·" },
-    { name: "Deutsch", value: "de", flag: "ðŸ‡©ðŸ‡ª" },
-    { name: "æ—¥æœ¬èªž", value: "ja", flag: "ðŸ‡¯ðŸ‡µ" },
-    { name: "ä¸­æ–‡", value: "zh", flag: "ðŸ‡¨ðŸ‡³" },
-    { name: "PortuguÃªs", value: "pt", flag: "ðŸ‡µðŸ‡¹" },
-    { name: "Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©", value: "ar", flag: "ðŸ‡¸ðŸ‡¦" },
-    { name: "í•œêµ­ì–´", value: "ko", flag: "ðŸ‡°ðŸ‡·" },
-    { name: "Svenska", value: "sv", flag: "ðŸ‡¸ðŸ‡ª" },
-    { name: "Nederlands", value: "nl", flag: "ðŸ‡³ðŸ‡±" },
+    { name: "English", value: "en", flag: "🇺🇸" },
+    { name: "Español", value: "es", flag: "🇪🇸" },
+    { name: "Français", value: "fr", flag: "🇫🇷" },
+    { name: "Deutsch", value: "de", flag: "🇩🇪" },
+    { name: "日本語", value: "ja", flag: "🇯🇵" },
+    { name: "中文", value: "zh", flag: "🇨🇳" },
+    { name: "Português", value: "pt", flag: "🇵🇹" },
+    { name: "العربية", value: "ar", flag: "🇸🇦" },
+    { name: "한국어", value: "ko", flag: "🇰🇷" },
+    { name: "Svenska", value: "sv", flag: "🇸🇪" },
+    { name: "Nederlands", value: "nl", flag: "🇳🇱" },
   ];
 
   const handleAddFriend = () => {
@@ -81,7 +81,7 @@ export function SettingsScreen({
       setFriendUsername("");
       setShowAddFriendDialog(false);
       // Show success toast
-      alert(`Friend request sent to ${friendUsername}! ðŸŽ‰`);
+      alert(`Friend request sent to ${friendUsername}! 🎉`);
     }
   };
 
@@ -94,28 +94,28 @@ export function SettingsScreen({
     <div className="h-full bg-background overflow-y-auto pb-20">
       {/* Header */}
       <div className="bg-primary text-primary-foreground p-6 rounded-b-3xl shadow-lg">
-        <div className="flex items-center gap-6 mb-4">
+        <div className="flex items-center gap-4 mb-4">
           <button
             onClick={onBack}
             className="p-2 hover:bg-white/20 rounded-xl transition-colors"
           >
             <ArrowLeft className="w-6 h-6" />
           </button>
-          <h1 className="text-primary-foreground">âš™ï¸ {t.settings}</h1>
+          <h1 className="text-primary-foreground">⚙️ {t.settings}</h1>
         </div>
       </div>
 
       <div className="p-6 space-y-6">
         {/* Appearance Section */}
         <div className="bg-card rounded-3xl p-6 shadow-md">
-          <h3 className="text-card-foreground mb-4">ðŸŽ¨ {t.appearance}</h3>
+          <h3 className="text-card-foreground mb-4">🎨 {t.appearance}</h3>
 
           {/* Theme Toggle */}
           <div
-            className="flex items-center justify-between p-6 rounded-2xl hover:bg-muted cursor-pointer transition-colors"
+            className="flex items-center justify-between p-4 rounded-2xl hover:bg-muted cursor-pointer transition-colors"
             onClick={() => setShowThemeDialog(true)}
           >
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
               {theme === "light" ? (
                 <Sun className="w-6 h-6 text-yellow-500" />
               ) : (
@@ -131,10 +131,10 @@ export function SettingsScreen({
 
           {/* Color Theme */}
           <div
-            className="flex items-center justify-between p-6 rounded-2xl hover:bg-muted cursor-pointer transition-colors mt-2"
+            className="flex items-center justify-between p-4 rounded-2xl hover:bg-muted cursor-pointer transition-colors mt-2"
             onClick={() => setShowColorDialog(true)}
           >
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
               <Palette className="w-6 h-6 text-primary" />
               <div>
                 <p className="text-card-foreground">{t.colorTheme}</p>
@@ -147,13 +147,13 @@ export function SettingsScreen({
 
         {/* Language Section */}
         <div className="bg-card rounded-3xl p-6 shadow-md">
-          <h3 className="text-card-foreground mb-4">ðŸŒ {t.languageRegion}</h3>
+          <h3 className="text-card-foreground mb-4">🌍 {t.languageRegion}</h3>
 
           <div
-            className="flex items-center justify-between p-6 rounded-2xl hover:bg-muted cursor-pointer transition-colors"
+            className="flex items-center justify-between p-4 rounded-2xl hover:bg-muted cursor-pointer transition-colors"
             onClick={() => setShowLanguageDialog(true)}
           >
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
               <Globe className="w-6 h-6 text-primary" />
               <div>
                 <p className="text-card-foreground">{t.language}</p>
@@ -169,13 +169,13 @@ export function SettingsScreen({
         {/* Social Section - Only for kids */}
         {userType === "kid" && (
           <div className="bg-card rounded-3xl p-6 shadow-md">
-            <h3 className="text-card-foreground mb-4">ðŸ‘¥ {t.social}</h3>
+            <h3 className="text-card-foreground mb-4">👥 {t.social}</h3>
 
             <div
-              className="flex items-center justify-between p-6 rounded-2xl hover:bg-muted cursor-pointer transition-colors"
+              className="flex items-center justify-between p-4 rounded-2xl hover:bg-muted cursor-pointer transition-colors"
               onClick={() => setShowAddFriendDialog(true)}
             >
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4">
                 <UserPlus className="w-6 h-6 text-green-500" />
                 <div>
                   <p className="text-card-foreground">{t.addFriends}</p>
@@ -189,10 +189,10 @@ export function SettingsScreen({
 
         {/* Notifications Section */}
         <div className="bg-card rounded-3xl p-6 shadow-md">
-          <h3 className="text-card-foreground mb-4">ðŸ”” {t.notifications}</h3>
+          <h3 className="text-card-foreground mb-4">🔔 {t.notifications}</h3>
 
-          <div className="flex items-center justify-between p-6 rounded-2xl">
-            <div className="flex items-center gap-6">
+          <div className="flex items-center justify-between p-4 rounded-2xl">
+            <div className="flex items-center gap-4">
               <Bell className="w-6 h-6 text-orange-500" />
               <div>
                 <p className="text-card-foreground">{t.pushNotifications}</p>
@@ -206,10 +206,10 @@ export function SettingsScreen({
         {/* Privacy & Security Section */}
         {userType === "parent" && (
           <div className="bg-card rounded-3xl p-6 shadow-md">
-            <h3 className="text-card-foreground mb-4">ðŸ”’ {t.privacySecurity}</h3>
+            <h3 className="text-card-foreground mb-4">🔒 {t.privacySecurity}</h3>
 
-            <div className="flex items-center justify-between p-6 rounded-2xl hover:bg-muted cursor-pointer transition-colors">
-              <div className="flex items-center gap-6">
+            <div className="flex items-center justify-between p-4 rounded-2xl hover:bg-muted cursor-pointer transition-colors">
+              <div className="flex items-center gap-4">
                 <Shield className="w-6 h-6 text-red-500" />
                 <div>
                   <p className="text-card-foreground">{t.parentalControls}</p>
@@ -223,10 +223,10 @@ export function SettingsScreen({
 
         {/* Help & Support Section */}
         <div className="bg-card rounded-3xl p-6 shadow-md">
-          <h3 className="text-card-foreground mb-4">â“ {t.helpSupport}</h3>
+          <h3 className="text-card-foreground mb-4">❓ {t.helpSupport}</h3>
 
-          <div className="flex items-center justify-between p-6 rounded-2xl hover:bg-muted cursor-pointer transition-colors">
-            <div className="flex items-center gap-6">
+          <div className="flex items-center justify-between p-4 rounded-2xl hover:bg-muted cursor-pointer transition-colors">
+            <div className="flex items-center gap-4">
               <HelpCircle className="w-6 h-6 text-primary" />
               <div>
                 <p className="text-card-foreground">{t.helpCenter}</p>
@@ -239,13 +239,13 @@ export function SettingsScreen({
 
         {/* Account Section */}
         <div className="bg-card rounded-3xl p-6 shadow-md">
-          <h3 className="text-card-foreground mb-4">ðŸ‘¤ {t.account}</h3>
+          <h3 className="text-card-foreground mb-4">👤 {t.account}</h3>
 
           <div
-            className="flex items-center justify-between p-6 rounded-2xl hover:bg-red-50 dark:hover:bg-red-950 cursor-pointer transition-colors"
+            className="flex items-center justify-between p-4 rounded-2xl hover:bg-red-50 dark:hover:bg-red-950 cursor-pointer transition-colors"
             onClick={() => setShowSignOutDialog(true)}
           >
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
               <LogOut className="w-6 h-6 text-red-500" />
               <div>
                 <p className="text-red-600">{t.signOut}</p>
@@ -264,7 +264,7 @@ export function SettingsScreen({
 
       {/* Theme Dialog */}
       <Dialog open={showThemeDialog} onOpenChange={setShowThemeDialog}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-sm">
           <DialogHeader>
             <DialogTitle>{t.theme}</DialogTitle>
             <DialogDescription>
@@ -277,13 +277,13 @@ export function SettingsScreen({
                 onThemeChange("light");
                 setShowThemeDialog(false);
               }}
-              className={`w-full flex items-center justify-between p-6 rounded-2xl border-2 transition-colors ${
+              className={`w-full flex items-center justify-between p-4 rounded-2xl border-2 transition-colors ${
                 theme === "light"
                   ? "border-primary bg-primary/10"
                   : "border-border hover:border-muted-foreground"
               }`}
             >
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-3">
                 <Sun className="w-6 h-6 text-yellow-500" />
                 <span className="text-foreground">{t.lightMode}</span>
               </div>
@@ -294,13 +294,13 @@ export function SettingsScreen({
                 onThemeChange("dark");
                 setShowThemeDialog(false);
               }}
-              className={`w-full flex items-center justify-between p-6 rounded-2xl border-2 transition-colors ${
+              className={`w-full flex items-center justify-between p-4 rounded-2xl border-2 transition-colors ${
                 theme === "dark"
                   ? "border-primary bg-primary/10"
                   : "border-border hover:border-muted-foreground"
               }`}
             >
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-3">
                 <Moon className="w-6 h-6 text-blue-400" />
                 <span className="text-foreground">{t.darkMode}</span>
               </div>
@@ -312,14 +312,14 @@ export function SettingsScreen({
 
       {/* Color Theme Dialog */}
       <Dialog open={showColorDialog} onOpenChange={setShowColorDialog}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-sm">
           <DialogHeader>
             <DialogTitle>{t.colorTheme}</DialogTitle>
             <DialogDescription>
               Pick your favorite color for the app
             </DialogDescription>
           </DialogHeader>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-2 gap-3">
             {colorThemes.map((theme) => (
               <button
                 key={theme.value}
@@ -327,7 +327,7 @@ export function SettingsScreen({
                   onColorThemeChange(theme.value);
                   setShowColorDialog(false);
                 }}
-                className={`flex flex-col items-center gap-5 p-6 rounded-2xl border-2 transition-colors ${
+                className={`flex flex-col items-center gap-3 p-4 rounded-2xl border-2 transition-colors ${
                   colorTheme === theme.value
                     ? "border-primary bg-primary/10"
                     : "border-border hover:border-muted-foreground"
@@ -346,7 +346,7 @@ export function SettingsScreen({
 
       {/* Language Dialog */}
       <Dialog open={showLanguageDialog} onOpenChange={setShowLanguageDialog}>
-        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+        <DialogContent className="max-w-sm max-h-[80vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>{t.language}</DialogTitle>
             <DialogDescription>
@@ -361,13 +361,13 @@ export function SettingsScreen({
                   onLanguageChange(lang.value);
                   setShowLanguageDialog(false);
                 }}
-                className={`w-full flex items-center justify-between p-6 rounded-2xl border-2 transition-colors ${
+                className={`w-full flex items-center justify-between p-4 rounded-2xl border-2 transition-colors ${
                   language === lang.value
                     ? "border-primary bg-primary/10"
                     : "border-border hover:border-muted-foreground"
                 }`}
               >
-                <div className="flex items-center gap-5">
+                <div className="flex items-center gap-3">
                   <span className="text-2xl">{lang.flag}</span>
                   <span className="text-foreground">{lang.name}</span>
                 </div>
@@ -380,7 +380,7 @@ export function SettingsScreen({
 
       {/* Add Friend Dialog */}
       <Dialog open={showAddFriendDialog} onOpenChange={setShowAddFriendDialog}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-sm">
           <DialogHeader>
             <DialogTitle>{t.addFriends}</DialogTitle>
             <DialogDescription>
@@ -422,7 +422,7 @@ export function SettingsScreen({
 
       {/* Sign Out Confirmation Dialog */}
       <Dialog open={showSignOutDialog} onOpenChange={setShowSignOutDialog}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-sm">
           <DialogHeader>
             <DialogTitle>{t.signOut}?</DialogTitle>
             <DialogDescription>
@@ -448,4 +448,3 @@ export function SettingsScreen({
     </div>
   );
 }
-
